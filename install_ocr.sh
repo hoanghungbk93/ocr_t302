@@ -13,7 +13,7 @@ Description=OCR Flask Service
 After=network.target
 
 [Service]
-ExecStart=$PYTHON_PATH $SCRIPT_PATH
+ExecStart=$WORKING_DIR/venv/bin/python $SCRIPT_PATH
 WorkingDirectory=$WORKING_DIR
 Restart=always
 User=pi
