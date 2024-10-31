@@ -3,6 +3,7 @@ from PIL import Image
 import pytesseract
 import os
 import time
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 app = Flask(__name__)
 
