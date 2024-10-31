@@ -13,12 +13,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Define bounding boxes for each temperature field (replace with actual coordinates)
 bounding_boxes = {
-    "Dryer": (0, 0, 1824, 500),
-    "HotBin": (1784, 132, 1819, 157),
-    "Ap": (1790, 161, 1821, 190),
-    "Exit": (1790, 194, 1819, 221),
-    "HotMix": (1790, 228, 1819, 254),
-    "Mixture": (1790, 259, 1817, 285)
+    "Dryer": (0, 0, 1824, 200)
 }
 
 @app.route('/upload', methods=['POST'])
