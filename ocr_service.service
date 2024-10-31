@@ -1,0 +1,13 @@
+[Unit]
+Description=OCR Flask Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/ocr_service/app.py
+WorkingDirectory=/home/pi/ocr_service
+Restart=always
+User=pi
+Environment="PATH=/home/pi/ocr_service/venv/bin:$PATH"
+
+[Install]
+WantedBy=multi-user.target
