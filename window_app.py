@@ -54,7 +54,7 @@ class ScreenCaptureService(win32serviceutil.ServiceFramework):
             # Push image to Raspberry Pi
             self.push_image_to_pi(screenshot_path)
             
-            time.sleep(2)
+            time.sleep(5)
 
         win32event.WaitForSingleObject(self.hWaitStop, win32event.INFINITE)
 

@@ -13,7 +13,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Define bounding boxes for each temperature field (replace with actual coordinates)
 bounding_boxes = {
-    "Dryer": (1780, 95, 1824, 128),
+    "Dryer": (0, 0, 1824, 500),
     "HotBin": (1784, 132, 1819, 157),
     "Ap": (1790, 161, 1821, 190),
     "Exit": (1790, 194, 1819, 221),
