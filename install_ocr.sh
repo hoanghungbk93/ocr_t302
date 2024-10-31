@@ -27,7 +27,6 @@ WantedBy=multi-user.target
 # SSH to the remote server and run commands
 ssh "$USER@your_pi_ip" << EOF
 # Update package list and install necessary packages
-sudo apt-get update -y
 sudo apt-get install -y python3 python3-pip python3-venv tesseract-ocr
 
 # Set up virtual environment and install Python dependencies
