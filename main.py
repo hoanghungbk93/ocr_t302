@@ -58,6 +58,7 @@ def process_image(image_path):
     for label, box in bounding_boxes.items():
         cropped_image = image.crop(box)
         text = pytesseract.image_to_string(cropped_image, config='--psm 6').strip()
+        logger.info("text: %s seconds", text)
         temperature_values[label] = text
 
     # Calculate processing time
