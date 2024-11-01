@@ -4,7 +4,6 @@ import pytesseract
 import os
 import time
 import logging
-from systemd import journal
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
@@ -13,7 +12,6 @@ app = Flask(__name__)
 # Set up logging to systemd
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("FlaskApp")
-logger.addHandler(journal.JournalHandler())
 logger.setLevel(logging.INFO)
 
 # Directory to save uploaded images
