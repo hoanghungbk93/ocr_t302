@@ -3,9 +3,18 @@ from PIL import Image
 import pytesseract
 import os
 import time
+import logging
+from systemd import journal
+
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 app = Flask(__name__)
+
+# Set up logging to systemd
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("FlaskApp")
+logger.addHandler(journal.JournalHandler())
+logger.setLevel(logging.INFO)
 
 # Directory to save uploaded images
 UPLOAD_FOLDER = "/home/pi/uploads"
@@ -53,9 +62,11 @@ def process_image(image_path):
         text = pytesseract.image_to_string(cropped_image, config='--psm 6').strip()
         temperature_values[label] = text
 
-    # Print processing time
-    print("Processing time: %s seconds" % (time.time() - start_time))
-    
+    # Calculate processing time
+    processing_time = time.time() - start_time
+    # Log processing time to systemd journal
+    logger.info("Image processing time: %.2f seconds", processing_time)
+
     return temperature_values
 
 if __name__ == '__main__':
